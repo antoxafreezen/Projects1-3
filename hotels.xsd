@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="qualified"
+    targetNamespace="http://aaa.com/Purchase"
+    xmlns:hotels="http://aaa.com/Purchase"> 
+    
+    
+    <xs:complexType name="typeHotels">
+        <xs:sequence>
+            <xs:element name="stars">
+                <xs:simpleType>
+                    <xs:restriction base = "xs:positiveInteger">
+                        <xs:maxInclusive value="5"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="food" type="hotels:typeYesNo"/>
+            <xs:element name="foodType" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="HB"/>
+                        <xs:enumeration value="BB"/>
+                        <xs:enumeration value="AI"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="room">
+                <xs:simpleType>
+                    <xs:restriction base = "xs:positiveInteger">
+                        <xs:maxInclusive value="3"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="tv" type="hotels:typeYesNo"/>
+            <xs:element name="conditioner" type="hotels:typeYesNo"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="typeYesNo">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+</xs:schema>

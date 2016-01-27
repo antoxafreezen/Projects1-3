@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    elementFormDefault="qualified" 
+    targetNamespace="http://ccc.com/Purchase"
+    xmlns:hotels="http://aaa.com/Purchase"
+    xmlns="http://ccc.com/Purchase"> 
+    <xs:import schemaLocation="hotels.xsd" namespace="http://aaa.com/Purchase"/> 
+    <xs:element name="vouchers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="voucher" minOccurs="1" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="type">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="holidays"></xs:enumeration>
+                                        <xs:enumeration value="excursion"></xs:enumeration>
+                                        <xs:enumeration value="recreation"></xs:enumeration>
+                                        <xs:enumeration value="pilgrimage"></xs:enumeration>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="country">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="France"></xs:enumeration>
+                                        <xs:enumeration value="England"></xs:enumeration>
+                                        <xs:enumeration value="Spain"></xs:enumeration>
+                                        <xs:enumeration value="Portugal"></xs:enumeration>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="duration" type="durationType"/>
+                            <xs:element name="transport">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="airline"></xs:enumeration>
+                                        <xs:enumeration value="train"></xs:enumeration>
+                                        <xs:enumeration value="automobile"></xs:enumeration>
+                                        <xs:enumeration value="ship"></xs:enumeration>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>                       
+                            <xs:element name="hotel" type="hotels:typeHotels"/>
+                            <xs:element name="cost" type="xs:positiveInteger"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:ID" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="durationType">
+        <xs:sequence>
+            <xs:element name="days" type="xs:positiveInteger"></xs:element>
+            <xs:element name="nights" type="xs:positiveInteger"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+ </xs:schema>

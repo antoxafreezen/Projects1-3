@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='vouchers.xsl'?>
+<v:vouchers
+    xmlns:v="http://ccc.com/Purchase" 
+    xmlns:hotels="http://aaa.com/Purchase" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://ccc.com/Purchase vouchers.xsd">
+    
+    <v:voucher id = "v001">
+        <v:type>holidays</v:type>
+        <v:country>France</v:country>
+        <v:duration>
+            <v:days>10</v:days>
+            <v:nights>9</v:nights>
+        </v:duration>
+        <v:transport>airline</v:transport>
+        <v:hotel>
+            <hotels:stars>3</hotels:stars>
+            <hotels:food>no</hotels:food>
+            <hotels:room>2</hotels:room>
+            <hotels:tv>yes</hotels:tv>
+            <hotels:conditioner>no</hotels:conditioner>
+        </v:hotel>
+        <v:cost>2000</v:cost>
+    </v:voucher>
+    
+    <v:voucher id = "v002">
+        <v:type>holidays</v:type>
+        <v:country>Spain</v:country>
+        <v:duration>
+            <v:days>3</v:days>
+            <v:nights>2</v:nights>
+        </v:duration>
+        <v:transport>airline</v:transport>
+        <v:hotel>
+            <hotels:stars>4</hotels:stars>
+            <hotels:food>no</hotels:food>
+            <hotels:room>1</hotels:room>
+            <hotels:tv>no</hotels:tv>
+            <hotels:conditioner>no</hotels:conditioner>
+        </v:hotel>
+        <v:cost>1000</v:cost>
+    </v:voucher>
+    
+ </v:vouchers>
